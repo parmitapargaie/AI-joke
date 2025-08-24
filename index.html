@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Joke Teller</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      text-align: center;
+      margin-top: 50px;
+    }
+    h1 {
+      color: #222;
+    }
+    #jokeBox {
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 600px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+      font-size: 1.3em;
+      min-height: 80px;
+    }
+    .btn-container {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 18px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      margin: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      color: white;
+    }
+    button:hover {
+      opacity: 0.8;
+    }
+    .funny { background-color: #f39c12; }
+    .happy { background-color: #27ae60; }
+    .sad   { background-color: #3498db; }
+    .tech  { background-color: #9b59b6; }
+    .school{ background-color: #e74c3c; }
+  </style>
+</head>
+<body>
+  <h1>😂 AI Joke Teller 😂</h1>
+  <div id="jokeBox">Click a mood button to hear a joke!</div>
+
+  <div class="btn-container">
+    <button class="funny" onclick="tellJoke('funny')">Funny</button>
+    <button class="happy" onclick="tellJoke('happy')">Happy</button>
+    <button class="sad" onclick="tellJoke('sad')">Sad</button>
+    <button class="tech" onclick="tellJoke('tech')">Tech</button>
+    <button class="school" onclick="tellJoke('school')">School</button>
+  </div>
+
+  <script>
+    // Joke database by category
+    const jokes = {
+      funny: [
+        "Why don’t scientists trust atoms? Because they make up everything!",
+        "Why can’t your nose be 12 inches long? Because then it would be a foot!"
+      ],
+      happy: [
+        "Why did the golfer bring two pairs of pants? In case he got a hole in one.",
+        "What kind of tree fits in your hand? A palm tree!"
+      ],
+      sad: [
+        "I told my computer I needed a break, and now it won’t stop sending me Kit-Kats.",
+        "Parallel lines have so much in common… it’s a shame they’ll never meet."
+      ],
+      tech: [
+        "Why do Java developers wear glasses? Because they don’t C#.",
+        "There are 10 types of people in the world: those who understand binary, and those who don’t."
+      ],
+      school: [
+        "Teacher: 'Why are you late?' Student: 'Because of the sign.' Teacher: 'What sign?' Student: 'School Ahead, Go Slow!'",
+        "Why was the math book sad? Because it had too many problems!"
+      ]
+    };
+
+    function tellJoke(category) {
+      const selectedJokes = jokes[category];
+      const randomIndex = Math.floor(Math.random() * selectedJokes.length);
+      document.getElementById("jokeBox").innerText = selectedJokes[randomIndex];
+    }
+  </script>
+</body>
+</html>
